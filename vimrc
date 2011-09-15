@@ -39,3 +39,17 @@ colorscheme desert
 :set scrolloff=2
 :set guioptions=aegimrLt
 :set hlsearch
+
+autocmd! bufwritepost .vimrc source ~/.vimrc
+
+" always show the line number and column
+:set ruler
+
+" be able to use the mouse in the terminal
+:set mouse=a
+
+" adding those quotes is pretty boring
+command! -nargs=+ -complete=command AllBuf call AllWindows(<q-args>)
+
+" line numbers
+:set number
