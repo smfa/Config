@@ -53,3 +53,23 @@ command! -nargs=+ -complete=command AllBuf call AllWindows(<q-args>)
 
 " line numbers
 :set number
+
+" execute a command for all buffers ther(sic) are shown in windows
+fun !AllWindows(cmnd)
+    let cmnd = a:cmnd
+    let origw = winnr()
+    let i =1
+    while (i <= bufnr("$"))
+        if bufexists(i)
+            let w = bufwinnr(i)
+            if w != -1
+                echo "=== window: " . w . " file: " . bufname(i)
+                execute "normal \<c-w>" . w . "W"
+                execute cmnd
+            endif
+        endif
+        let i = i+1
+    endwhile
+    execute "normal \<c-w>" . origw . "w"
+endfun
+    
