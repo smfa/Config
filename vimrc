@@ -73,3 +73,11 @@ fun !AllWindows(cmnd)
     execute "normal \<c-w>" . origw . "w"
 endfun
     
+" added 20/02/14 - for moving items up and down
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-k> <Esc>:m +1<CR>==gi
+inoremap <A-j> <Esc>:m -2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
