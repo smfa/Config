@@ -19,7 +19,7 @@ colorscheme desert
 " incrementally search
 :set incsearch
 
-"make ctrl-t open a new tab like every other program ever
+" make ctrl-t open a new tab like every other program ever
 :map <C-T> :tabnew<CR>
 
 "make return indent to the same as the prev line
